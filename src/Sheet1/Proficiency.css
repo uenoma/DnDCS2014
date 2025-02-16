@@ -1,0 +1,20 @@
+.Proficiency {
+  width: 65mm;
+  height: 50mm;
+  border: solid 2px gray;
+  border-radius: 2mm;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.Proficiency textarea {
+  margin-top: 1mm;
+  width: 95%;
+  height: 100%;
+  resize: none;
+  border: none;
+}
+
+.Proficiency label {
+  text-align: center;
+}

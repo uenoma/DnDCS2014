@@ -1,0 +1,209 @@
+.Ability {
+  width: 100%;
+}
+
+.AbilitySets {
+  padding-top: 5mm;
+  
+}
+
+.AbilitySet {
+  width: 20mm;
+  height: 25mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 2mm;
+}
+
+.AbilitySetModifier {
+  width: 17mm;
+  height: 20mm;
+  border-radius: 2mm 2mm 2mm 2mm;
+  border: solid 2px gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.AbilitySetModifier label {
+  width: 100%;
+  text-align: center;
+}
+
+.AbilitySetModifier input {
+  width: 75%;
+  height: 10mm;
+  text-align: center;
+  font-size: 20px;
+}
+
+.AbilitySetScore {
+  position: absolute;
+  top: 15mm;
+  background-color: white;
+  border-radius: 50% 50% 50% 50%;
+  border: solid 2px gray;
+  width: 12mm;
+  height: 8mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.AbilitySetScore input {
+  width: 50%;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  text-align: center;
+}
+
+.AbilityInspiration {
+  width: 40mm;
+  margin-left: 3mm;
+  margin-bottom: 3mm;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.AbilityInspirationValue {
+  border-radius: 2mm;
+  border: solid 2px gray;
+  width: 10mm;
+  height: 8mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+.AbilityInspiration input {
+  width: 5mm;
+  height: 5mm;
+}
+
+.AbilityInspirationCaption {
+  width: calc(100% - 10mm);
+  border-radius: 0 2mm 2mm 0;
+  border-top: solid 2px gray;
+  border-right: solid 2px gray;
+  border-bottom: solid 2px gray;
+  text-align: center;
+}
+
+.AbilityProficiencyValue {
+  border-radius: 50%;
+  border: solid 2px gray;
+  width: 10mm;
+  height: 10mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+.AbilityProficiencyValue input {
+  width: 7mm;
+  border: none;
+  text-align: center;
+}
+
+.SavingThrows {
+  margin-left: 3mm;
+  margin-bottom: 3mm;
+  padding-top: 2mm;
+  text-align: center;
+  border-radius: 2mm;
+  border: solid 2px gray;
+}
+
+.SavingThrowSet {
+  margin-left: 1mm;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1mm;
+}
+
+.SavingThrowSet label {
+  font-size: 9px;
+}
+
+.SavingThrowSetValue {
+  width: 6mm;
+  border: none;
+  border-bottom: solid 1px gray;
+  text-align: center;
+  margin-right: 1mm;
+}
+
+.Skills {
+  margin-left: 3mm;
+  padding-top: 2mm;
+  text-align: center;
+  border-radius: 2mm;
+  border: solid 2px gray;
+}
+
+.SkillSet {
+  margin-left: 1mm;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 1mm;
+}
+
+.SkillSet label {
+  font-size: 9px;
+}
+
+.SkillSetValue {
+  width: 6mm;
+  border: none;
+  border-bottom: solid 1px gray;
+  text-align: center;
+  margin-right: 1mm;
+}
+
+.SkillAbility {
+  color: rgb(151, 153, 154);
+}
+
+.AbilityPerception {
+  width: 65mm;
+  margin-top: 1mm;
+  margin-bottom: 3mm;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.AbilityPerceptionValue {
+  border-radius: 2mm;
+  border: solid 2px gray;
+  width: 10mm;
+  height: 8mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+.AbilityPerception input {
+  width: 5mm;
+  height: 5mm;
+  border: none;
+  text-align: center;
+}
+
+.AbilityPerceptionCaption {
+  width: calc(100% - 10mm);
+  border-radius: 0 2mm 2mm 0;
+  border-top: solid 2px gray;
+  border-right: solid 2px gray;
+  border-bottom: solid 2px gray;
+  text-align: center;
+}

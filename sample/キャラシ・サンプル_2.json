@@ -1,0 +1,160 @@
+{
+  "name": "キャラシ・サンプル",
+  "background": "兵士",
+  "class": "ドルイド",
+  "species": "ヒューマン",
+  "subclass": "月の円環",
+  "level": "2",
+  "xp": "300",
+  "armor_class": {
+    "value": "15",
+    "shield": false
+  },
+  "hp": {
+    "value": "15",
+    "max": "15",
+    "temp": "0",
+    "hit_dice": "2d8",
+    "hit_dice_spent": "2d8"
+  },
+  "death_saves": {
+    "successes": [
+      false,
+      false,
+      false
+    ],
+    "failures": [
+      false,
+      false,
+      false
+    ]
+  },
+  "proficiency": {
+    "armor": {
+      "light": true,
+      "medium": true,
+      "heavy": false
+    },
+    "shield": true,
+    "weapons": "クォータースタッフ、クラブ、シックル、シミター、ジャヴェリン、スピア、スリング、ダーツ、ダガー、メイス",
+    "tools": "薬草師道具、ゲーム道具（ダイス一揃い）、乗り物（陸）"
+  },
+  "stats": {
+    "strength": "9",
+    "dexterity": "16",
+    "constitution": "12",
+    "intelligence": "14",
+    "wisdom": "18",
+    "charisma": "8"
+  },
+  "saving_throws": {
+    "strength_save_checked": false,
+    "dexterity_save_checked": false,
+    "constitution_save_checked": false,
+    "intelligence_save_checked": true,
+    "wisdom_save_checked": true,
+    "charisma_save_checked": false,
+    "strength_save": "-1",
+    "dexterity_save": "3",
+    "constitution_save": "1",
+    "intelligence_save": "4",
+    "wisdom_save": "6",
+    "charisma_save": "-1"
+  },
+  "proficiency_bonus": "+2",
+  "inspiration": true,
+  "skills": {
+    "acrobatics_checked": false,
+    "animal_handling_checked": false,
+    "arcana_checked": false,
+    "athletics_checked": true,
+    "deception_checked": false,
+    "history_checked": false,
+    "insight_checked": false,
+    "intimidation_checked": true,
+    "investigation_checked": false,
+    "medicine_checked": true,
+    "nature_checked": false,
+    "perception_checked": true,
+    "performance_checked": false,
+    "persuasion_checked": false,
+    "religion_checked": false,
+    "sleight_of_hand_checked": false,
+    "stealth_checked": false,
+    "survival_checked": true,
+    "acrobatics": "3",
+    "animal_handling": "4",
+    "arcana": "2",
+    "athletics": "1",
+    "deception": "-1",
+    "history": "2",
+    "insight": "4",
+    "intimidation": "1",
+    "investigation": "2",
+    "medicine": "6",
+    "nature": "2",
+    "perception": "6",
+    "performance": "-1",
+    "persuasion": "-1",
+    "religion": "2",
+    "sleight_of_hand": "3",
+    "stealth": "3",
+    "survival": "6"
+  },
+  "initiative": "+3",
+  "speed": {
+    "walk": "30ft"
+  },
+  "size": "中型",
+  "passive_perception": "16",
+  "actions": [
+    {
+      "name": "クォータースタッフ",
+      "attack_bonus": "+1",
+      "damage_dice": "1d6-1",
+      "desc": "両用"
+    },
+    {
+      "name": "スリング",
+      "attack_bonus": "+5",
+      "damage_dice": "1d4+3",
+      "desc": "矢弾（射程30/120）"
+    },
+    {
+      "name": "",
+      "attack_bonus": "",
+      "damage_dice": "",
+      "desc": ""
+    },
+    {
+      "name": "",
+      "attack_bonus": "",
+      "damage_dice": "",
+      "desc": ""
+    },
+    {
+      "name": "",
+      "attack_bonus": "",
+      "damage_dice": "",
+      "desc": ""
+    },
+    {
+      "name": "",
+      "attack_bonus": "",
+      "damage_dice": "",
+      "desc": ""
+    },
+    {
+      "name": "",
+      "attack_bonus": "",
+      "damage_dice": "",
+      "desc": ""
+    }
+  ],
+  "class_features": [
+    "■ドルイド：自然の化身2回（小休憩／大休憩回復）\n\n■月の円環：戦う自然の化身\n2レベルでこの円環を選択した時点で君は、自分のターンに(アクションではなく)ボーナス・アクションとして“自然の化身”を使用する能力を得る。\n加えて、“自然の化身”によって変化している間、君はボーナス・アクションを用いて1つの呪文スロットを消費し、その呪文スロットのレベル1ごとに1d8ヒット・ポイントを回復することができる。\n\n■月の円環：月の円環の形態\n月の円環の儀式によって、より危険な動物の形態に変化する能力を得る。2レベル以降、君は“自然の化身”を用いて脅威度が1以下の野獣に変化できる(すなわち、「野獣形態」表の“脅威度上限”の項は無視できるが、同表のその他の制限には従う必要がある※)。\n6レベル以降、君は脅威度が(君のドルイド・レベル÷3)(切り捨て)以下の野獣に変化できる。\n※飛行移動速度なし、水泳移動速度なし\n",
+    ""
+  ],
+  "species_traits": "",
+  "feats": "■特技：癒し手\n君は有能な医者であり、傷を手早く処置し仲間を速やかに戦いに立ち戻らせることができる。君は以下の利益を得る。\n・君が治療用具を使用して、瀕死のクリーチャーを容体安定化させたなら、そのクリーチャーは容体安定化すると同時に1ヒット・ポイントを回復する。\n・1回のアクションとして君は、治療用具の使用回数1回を消費してクリーチャー1体の手当を行ない、(1d6+4+そのクリーチャーのヒット・ダイスの最大個数)に等しいヒット・ポイントを回復させることができる。この特技によってヒット・ポイントを回復したクリーチャーは、次に小休憩あるいは大休憩を終了するまで、再度この特技によってヒット・ポイントを回復することはできない。"
+}

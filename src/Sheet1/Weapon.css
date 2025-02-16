@@ -1,0 +1,53 @@
+.Weapon {
+  width: 62mm;
+  height: 90mm;
+  border: solid 2px gray;
+  border-radius: 2mm;
+  padding: 1.5mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.WeaponTitle {
+  text-align: center;
+}
+
+.Weapon table {
+  font-size: 9px;
+  color: gray;
+  text-align: left;
+  background-color: lightcyan;
+  width: 100%;
+  height: 20mm;
+  border: solid 1px;;
+}
+
+.WeaponTable tr td {
+  border: solid 1px;;
+}
+.WeaponTable th label{
+  font-size: 8px;
+  height: 8mm;
+  border: solid 1px;
+}
+
+.WeaponTable input {
+  margin: 0;
+  padding: 0;
+  width: 20px;
+
+}
+
+.WeaponTableName input {
+  width: 22mm;
+}
+
+.WeaponTableBonus input{
+  width: 12mm;
+  text-align: center;
+}
+
+.WeaponTableDamage input {
+  width: 20mm;
+  text-align: center;
+}

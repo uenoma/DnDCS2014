@@ -1,0 +1,48 @@
+.Sheet1Header {
+  width: 100%;
+  height: 36mm;
+  display: flex;
+  flex-direction: row;
+}
+
+.Sheet1HeaderName {
+  width: 80mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Sheet1HeaderName input {
+  height: 15mm;
+  margin: 5px 5px 0 5px;
+  border: none;
+  border: solid 2px gray;
+  text-align: center;
+}
+
+.Sheet1HeaderName label {
+  margin: 0 5px 0 5px;
+}
+
+.Sheet1HeaderInfo {
+  width: calc(100% - 85mm);
+  padding: 10px;
+  justify-content: center;
+  border: solid 2px gray;
+  margin: 10px 0 10px 0;
+  padding-top: 20px;
+}
+
+.Sheet1HeaderInfo input {
+  width: 100%;
+  margin-right: 5mm;
+  border: none;
+  border-bottom: solid 1px gray;
+  text-align: center;
+}
+
+.Sheet1HeaderInfoItem {
+  width: 38mm;
+  margin: 0 10px 0 10px;
+}
+

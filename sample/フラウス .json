@@ -1,0 +1,215 @@
+{
+  "name": "フラウス",
+  "background": "侍祭",
+  "class": "クレリック",
+  "species": "ヒューマン",
+  "subclass": "生命の領域",
+  "level": "1",
+  "xp": "0",
+
+  "about": "",
+  "external_id": null,
+  "size": "Medium",
+  "type": "Humanoid",
+  "subtype": null,
+  "group": null,
+  "alignment": "Neutral Good",
+  "armor_class": {
+    "value": 18,
+    "special": null,
+    "shield": "true"
+  },
+  "hp": {
+    "value": 17,
+    "max": 17,
+    "temp": 0,
+    "hit_dice": "2d8",
+    "hit_dice_spent": "2d8"
+  },
+  "death_saves": {
+    "successes": [false, false, false],
+    "failures": [false, true, false]
+  },
+  "speed": {
+    "walk": 30,
+    "fly": null,
+    "swim": null,
+    "climb": null,
+    "burrow": null,
+    "hover": null,
+    "lightwalking": null,
+    "notes": null
+  },
+  "stats": {
+    "strength": 14,
+    "dexterity": 9,
+    "constitution": 15,
+    "intelligence": 11,
+    "wisdom": 16,
+    "charisma": 13
+  },
+  "saving_throws": {
+    "strength_save": 2,
+    "dexterity_save": -1,
+    "constitution_save": 2,
+    "intelligence_save": 0,
+    "wisdom_save": 5,
+    "charisma_save": 3
+  },
+  "initiative": null,
+  "proficiency_bonus": null,
+  "skills": {
+    "acrobatics": -1,
+    "animal_handling": 3,
+    "arcana": 0,
+    "athletics": 2,
+    "deception": 1,
+    "history": 2,
+    "insight": 5,
+    "intimidation": 1,
+    "investigation": 0,
+    "medicine": 3,
+    "nature": 0,
+    "perception": 3,
+    "performance": 1,
+    "persuasion": 3,
+    "religion": 2,
+    "sleight_of_hand": -1,
+    "stealth": -1,
+    "survival": 3
+  },
+  "damage_vulnerabilities": "",
+  "damage_resistances": "",
+  "damage_immunities": "",
+  "condition_immunities": null,
+  "senses": [
+    ""
+  ],
+  "languages": [
+    ""
+  ],
+  "items": [
+    "Shield",
+    "Chain Mail",
+    "Mace",
+    "Backpack",
+    "Clothes, Common",
+    "Emblem",
+    "Alms Box",
+    "Vestments",
+    "Holy Symbol",
+    "Blanket",
+    "Candle",
+    "Rations (1 day)",
+    "Tinderbox",
+    "Waterskin",
+    "Block of Incense",
+    "Censer",
+    "Vestments"
+  ],
+  "equipment": [],
+  "challenge_rating": "level 2",
+  "cr": 2,
+  "actions": [
+    {
+      "name": "Unarmed Strike",
+      "desc": "You can punch, kick, head-butt, or use a similar forceful blow and deal bludgeoning damage equal to 1 + STR modifier",
+      "attack_bonus": 4,
+      "stat_bonus": [],
+      "use_proficiency": false,
+      "damage_dice": "3 ",
+      "limit": null
+    },
+    {
+      "name": "Channel Divinity: Preserve Life",
+      "desc": "As an action, you can restore 10 HP. Choose any creatures within 30 ft. of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can’t use this feature on an undead or a construct.",
+      "attack_bonus": null,
+      "stat_bonus": [],
+      "use_proficiency": false,
+      "damage_dice": null,
+      "limit": null
+    },
+    {
+      "name": "Channel Divinity: Turn Undead",
+      "desc": "As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a WIS saving throw (DC 13). If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.",
+      "attack_bonus": null,
+      "stat_bonus": [],
+      "use_proficiency": false,
+      "damage_dice": null,
+      "limit": null
+    },
+    {
+      "name": "Mace",
+      "desc": "Proficiency with a mace allows you to add your proficiency bonus to the attack roll for any attack you make with it.",
+      "attack_bonus": 4,
+      "stat_bonus": [],
+      "use_proficiency": false,
+      "damage_dice": "1d6+2 ",
+      "limit": null
+    }
+  ],
+  "bonus_actions": [],
+  "lair_actions": [],
+  "mythic_actions": [],
+  "reactions": [],
+  "legendary_desc": null,
+  "legendary_actions": [],
+  "special_abilities": [
+    {
+      "name": "Channel Divinity",
+      "desc": "You can channel divine energy to fuel magical effects a number of times per short rest.",
+      "attack_bonus": null,
+      "stat_bonus": [],
+      "use_proficiency": false,
+      "damage_dice": null,
+      "limit": {
+        "name": "Channel Divinity",
+        "description": null,
+        "uses": 1,
+        "resets": [
+          "Short Rest"
+        ]
+      }
+    }
+  ],
+  "spell_slots": [
+    {
+      "level": 1,
+      "limit": {
+        "name": "Spellslot 1",
+        "description": null,
+        "uses": 3,
+        "resets": [
+          "Long Rest"
+        ]
+      }
+    }
+  ],
+  "spells": [
+    "bane",
+    "bless",
+    "command",
+    "createordestroywater",
+    "curewounds",
+    "detectevilandgood",
+    "detectmagic",
+    "detectpoisonanddisease",
+    "guidance",
+    "guidingbolt",
+    "healingword",
+    "inflictwounds",
+    "mending",
+    "protectionfromevilandgood",
+    "purifyfoodanddrink",
+    "sanctuary",
+    "shieldoffaith",
+    "thaumaturgy"
+  ],
+  "spell_dc": "13",
+  "spell_attack": "5",
+  "limits": [],
+  "source": "uenoma",
+  "slug": "フラウス-uenoma",
+  "license": null,
+  "active": true
+}
