@@ -1,0 +1,64 @@
+.Symbol {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: solid 2px gray;
+  border-radius: 2mm;
+  background-color: white;
+  height: 85mm;
+}
+
+.SymbolTitle {
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 2mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.SymbolTitle.Center {
+  text-align: center;
+}
+
+.SymbolTitle input {
+  font-size: 10px;
+  width: 90%;
+}
+
+.SymbolContent {
+  position: relative;
+  height: 60mm;
+}
+
+.SymbolContent img {
+  margin: 5px;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  object-fit: contain;
+  border: none;
+  border: solid 1px gray;
+}
+
+.SymbolContent textarea{
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  resize: none;
+  width: 95%;
+  height: 95%;
+  margin: 5px;
+  background-color: transparent;
+}
+
+.SymbolContentURL {
+  margin: 0 2mm 2mm 2mm;
+  font-size: 12px;
+  font-weight: bold;
+  border-bottom: solid 1px gray;
+}
+
+.SymbolContentURL input {
+  width: 95%;
+  border: none;
+}

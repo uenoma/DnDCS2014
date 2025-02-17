@@ -1,0 +1,34 @@
+.SpeciesTraits {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 136mm;
+  height: 100mm;
+  border: solid 2px gray;
+  border-radius: 2mm;
+}
+
+.SpeciesTraitsTitle {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.SpeciesTraitsContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.SpeciesTraitsContent textarea{
+  border: none;
+  resize: none;
+  width: 95%;
+  height: 95%;
+  margin: 1mm
+
+}

@@ -1,0 +1,52 @@
+.Appearance {
+  display: flex;
+  flex-direction: column;
+  width: 62mm;
+  border: solid 2px gray;
+  border-radius: 2mm;
+  background-color: white;
+  height: 80mm;
+}
+
+.AppearanceTitle {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.AppearanceContent {
+  position: relative;
+  height: 60mm;
+}
+
+.AppearanceContent img {
+  margin: 5px;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  object-fit: contain;
+  border: none;
+}
+
+.AppearanceContent textarea{
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  resize: none;
+  width: 95%;
+  height: 95%;
+  margin: 5px;
+  background-color: transparent;
+}
+
+.AppearanceContentURL {
+  margin: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.AppearanceContentURL input {
+  width: 95%;
+  border: none;
+  border-bottom: solid 1px gray;
+}

@@ -200,10 +200,30 @@ function App() {
         ],
       },
 
-
       class_features: [
         document.getElementById('class_features1').value,
       ],
+
+      appearance: {
+        value: document.getElementById("Appearance").value,
+        image_url: document.getElementById("ImageUrl").value,
+      },
+
+      organization: {
+        symbol_name: document.getElementById("SymbolName").value,
+        symbol: document.getElementById("SymbolText").value,
+        image_url: document.getElementById("SymbolImageUrl").value,
+        texts: [
+          document.getElementById("OrganizationText1").value,
+          document.getElementById("OrganizationText2").value,
+        ],
+      },
+
+
+      backstory: document.getElementById('Backstory').value,
+
+      species_traits: document.getElementById('species_traits').value,
+      treasure: document.getElementById('Treasure').value,
 
 
     }
