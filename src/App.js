@@ -12,7 +12,15 @@ function App() {
 
     const saveData = {
       name: document.getElementById("Sheet1Name").value,
+
+      level: document.getElementById('BasicInfoLevel').value,
+      player_name: document.getElementById('BasicInfoPlayerName').value,
+      species: document.getElementById('BasicInfoSpecies').value,
+      alignment: document.getElementById('BasicInfoAlignment').value,
+      xp: document.getElementById('BasicInfoXP').value,
+
       basic_info: {
+
         age: document.getElementById('BasicInfoAge').value,
         height: document.getElementById('BasicInfoHeight').value,
         weight: document.getElementById('BasicInfoWeight').value,
@@ -95,6 +103,109 @@ function App() {
         text: document.getElementById("proficiency").value,
       },
 
+      armor_class: {
+        value: document.getElementById('ArmorClassValue').value,
+      },
+      initiative: document.getElementById('initiative').value,
+      speed: {
+        walk: document.getElementById('speed').value,
+      },
+
+      hp: {
+        value: document.getElementById('StatusHPCurrent').value,
+        max: document.getElementById('StatusHPMax').value,
+        temp: document.getElementById('StatusHPTemp').value,
+
+        hit_dice: document.getElementById('StatusHitDiceMax').value,
+        hit_dice_spent: document.getElementById('StatusHitDiceSpent').value
+      },
+
+      death_saves: {
+        successes: [
+          document.getElementById('DeathSavesSuccess1').checked,
+          document.getElementById('DeathSavesSuccess2').checked,
+          document.getElementById('DeathSavesSuccess3').checked
+        ],
+        failures: [
+          document.getElementById('DeathSavesFailure1').checked,
+          document.getElementById('DeathSavesFailure2').checked,
+          document.getElementById('DeathSavesFailure3').checked
+        ]
+      },
+
+
+      actions: [
+        {
+          name: document.getElementById('col_name0').value,
+          attack_bonus: document.getElementById('col_attack_bonus0').value,
+          damage_dice: document.getElementById('col_damage_dice0').value,
+        },
+        {
+          name: document.getElementById('col_name1').value,
+          attack_bonus: document.getElementById('col_attack_bonus1').value,
+          damage_dice: document.getElementById('col_damage_dice1').value,
+        },
+        {
+          name: document.getElementById('col_name2').value,
+          attack_bonus: document.getElementById('col_attack_bonus2').value,
+          damage_dice: document.getElementById('col_damage_dice2').value,
+        },
+        {
+          name: document.getElementById('col_name3').value,
+          attack_bonus: document.getElementById('col_attack_bonus3').value,
+          damage_dice: document.getElementById('col_damage_dice3').value,
+        },
+        {
+          name: document.getElementById('col_name4').value,
+          attack_bonus: document.getElementById('col_attack_bonus4').value,
+          damage_dice: document.getElementById('col_damage_dice4').value,
+        },
+      ],
+
+      action_memo: document.getElementById('action_memo').value,
+
+      equipment: {
+        value: document.getElementById("Equipment").value,
+        magic_item: [
+          {
+            name: document.getElementById("MagicItem1").value,
+            checked: document.getElementById("MagicItemChecked1").checked,
+          },
+          {
+            name: document.getElementById("MagicItem2").value,
+            checked: document.getElementById("MagicItemChecked2").checked,
+          },
+          {
+            name: document.getElementById("MagicItem3").value,
+            checked: document.getElementById("MagicItemChecked3").checked,
+          },
+        ]
+      },
+
+      coins: {
+        cp: document.getElementById("Coins_cp").value,
+        sp: document.getElementById("Coins_sp").value,
+        gp: document.getElementById("Coins_gp").value,
+        ep: document.getElementById("Coins_ep").value,
+        pp: document.getElementById("Coins_pp").value,
+      },
+
+      background: {
+        type: document.getElementById('BasicInfoBackground').value,
+        details: [
+          document.getElementById("Background1").value,
+          document.getElementById("Background2").value,
+          document.getElementById("Background3").value,
+          document.getElementById("Background4").value,
+        ],
+      },
+
+
+      class_features: [
+        document.getElementById('class_features1').value,
+      ],
+
+
     }
 
     const name = saveData.name.length > 0 ? saveData.name : "noname";
@@ -136,12 +247,11 @@ function App() {
       <div className="Sheet">
         <div className="Content">
           <Sheet1 data={data}></Sheet1>
-
         </div>
       </div>
       <div className="Sheet">
         <div className="Content">
-          <Sheet2></Sheet2>
+          <Sheet2 data={data}></Sheet2>
         </div>
       </div>
       <div className="Sheet">

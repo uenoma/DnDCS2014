@@ -1,0 +1,27 @@
+.Features {
+  display: flex;
+  flex-direction: column;
+  width: 65mm;
+  height: 157mm;
+  border: solid 2px gray;
+  border-radius: 2mm;
+}
+
+.FeaturesItem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.FeaturesItem textarea {
+  resize: none;
+  border: none;
+  margin: 1mm;
+  width: 60mm;
+  height: 100%;
+  font-size: 10px;
+}

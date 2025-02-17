@@ -5,6 +5,11 @@ function Status(props) {
 
   useEffect(() => {
     if (props.data) {
+
+      document.getElementById('ArmorClassValue').value = props.data.armor_class.value;
+      document.getElementById('initiative').value = props.data.initiative;
+      document.getElementById('speed').value = props.data.speed.walk;
+
       document.getElementById('StatusHPCurrent').value = props.data.hp.value;
       document.getElementById('StatusHPTemp').value = props.data.hp.temp;
       document.getElementById('StatusHPMax').value = props.data.hp.max;
@@ -26,15 +31,15 @@ function Status(props) {
     <div className="Status Col">
       <div className="StatusItems">
         <div className="StatusItem ac">
-          <input></input>
+          <input id="ArmorClassValue"></input>
           <label>アーマークラス<br></br>(AC)</label>
         </div>
         <div className="StatusItem">
-          <input></input>
+          <input id="initiative"></input>
           <label>イニシアチブ</label>
         </div>
         <div className="StatusItem">
-          <input></input>
+          <input id="speed"></input>
           <label>移動速度</label>
         </div>
       </div>
@@ -55,9 +60,9 @@ function Status(props) {
       <div className="StatusLowerItemSet">
         <div className="StatusLowerItem">
           <div className="BorderBottom">
-            <label>計</label><input className="StatusHitDice"></input>
+            <label>計</label><input className="StatusHitDice" id="StatusHitDiceSpent"></input>
           </div>
-          <textarea className="StatusHitDiceSpent"></textarea>
+          <textarea className="StatusHitDiceSpent" id="StatusHitDiceMax"></textarea>
           <label>ヒットダイス</label>
         </div>
         <div className="StatusLowerItem DeathSave">

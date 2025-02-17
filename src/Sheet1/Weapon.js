@@ -6,14 +6,15 @@ function Weapon(props) {
   useEffect(() => {
     if (props.data) {
       props.data.actions.forEach((action, index) => {
-        if (index < 7) {
+        if (index < 5) {
           document.getElementById('col_name' + index).value = action.name;
           document.getElementById('col_attack_bonus' + index).value = action.attack_bonus;
           document.getElementById('col_damage_dice' + index).value = action.damage_dice;
-          document.getElementById('col_desc' + index).value = action.desc;
         }
         index++;
       });
+      document.getElementById('action_memo').value = props.data.action_memo;
+
     }
   }, [props]);
 
@@ -41,9 +42,11 @@ function Weapon(props) {
           {action(0)}
           {action(1)}
           {action(2)}
+          {action(3)}
+          {action(4)}
         </tbody>
       </table>
-      <textarea></textarea>
+      <textarea className="WeaponMemo" id="action_memo"></textarea>
       <div className="WeaponTitle">
         <label>攻撃＆呪文</label>
       </div>

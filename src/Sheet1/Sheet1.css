@@ -13,4 +13,5 @@
 
 .Sheet1Col {
   width: calc((100% / 3) - 2mm);  
+  justify-content: space-between;
 }

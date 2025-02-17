@@ -6,7 +6,6 @@
   padding: 1.5mm;
   display: flex;
   flex-direction: column;
-  margin-bottom: 2mm;
 }
 
 .StatusItems {
@@ -35,6 +34,7 @@
   width: 10mm;
   height: 10mm;
   border: none;
+  text-align: center;
 }
 
 .StatusItem label {

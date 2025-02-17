@@ -1,13 +1,13 @@
 import './Sheet1Header.css';
 import { useState, useEffect } from 'react';
 
-function Sheet1(props) {
+function Sheet1Header(props) {
 
   useEffect(() => {
     if (props.data) {
       document.getElementById('Sheet1Name').value = props.data.name;
       document.getElementById('BasicInfoLevel').value = props.data.level;
-      document.getElementById('BasicInfoBackground').value = props.data.background;
+      document.getElementById('BasicInfoBackground').value = props.data.background.type;
       document.getElementById('BasicInfoPlayerName').value = props.data.player_name;
       document.getElementById('BasicInfoSpecies').value = props.data.species;
       document.getElementById('BasicInfoAlignment').value = props.data.alignment;
@@ -57,4 +57,4 @@ function Sheet1(props) {
   );
 }
 
-export default Sheet1;
+export default Sheet1Header;
