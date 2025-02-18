@@ -1,8 +1,8 @@
-.Sheet2 {
+.Sheet3 {
   width: 100%;
 }
 
-.Sheet2Body {
+.Sheet3Body {
   width: 100%;
   height: 100%;
   display: flex;
@@ -11,18 +11,11 @@
 
 }
 
-.Sheet2Left {
+.Sheet3Col {
   display: flex;
   flex-direction: column;
-  width: calc((100% / 3) - 2mm);  
-  height: 250mm;
   justify-content: space-between;
-}
-
-.Sheet2Right {
-  display: flex;
-  flex-direction: column;
-  width: 138mm;
+  width: 67mm;
   height: 250mm;
-  justify-content: space-between;
+  align-items: center;
 }

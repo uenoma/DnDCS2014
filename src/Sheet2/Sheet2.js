@@ -19,11 +19,11 @@ function Sheet2(props) {
     <div className="Sheet2">
       <Sheet2Header data={props.data}></Sheet2Header>
       <div className="Sheet2Body Row">
-        <div className="Sheet2Left Col">
+        <div className="Sheet2Left">
           <Appearance data={props.data}></Appearance>
           <Backstory data={props.data}></Backstory>
         </div>
-        <div className="Sheet2Right Col">
+        <div className="Sheet2Right">
           <Organization data={props.data}></Organization>
           <SpeciesTraits data={props.data}></SpeciesTraits>
           <Treasure data={props.data}></Treasure>

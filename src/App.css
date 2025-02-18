@@ -40,8 +40,17 @@
 .Sheet {
   width: 210mm;
   height: 295mm;
+}
+
+.Sheet.Border {
   border: solid 1px gray;
 }
+@media print{
+  .Sheet.Border {
+      border: none;
+  }
+}
+
 
 .Content {
   width: calc(100% - 4mm);

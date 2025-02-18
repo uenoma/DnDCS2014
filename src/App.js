@@ -3,10 +3,31 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import Sheet1 from './Sheet1/Sheet1'
 import Sheet2 from './Sheet2/Sheet2'
+import Sheet3 from './Sheet3/Sheet3'
 
 function App() {
 
   const [data, setData] = useState(null)
+
+  const spellItems = (level, count) => {
+
+    let items = [];
+    for (let index = 0; index < count; index++) {
+      items.push(
+        {
+          checked: level == 0 ? true : document.getElementById("spell_checked" + level + "_" + index).checked,
+          spell_name: document.getElementById("spell_name" + level + "_" + index).value,
+        }
+      );
+    }
+
+    return {
+      level: level,
+      slot_num: level == 0 ? 0 : document.getElementById("slot_num" + level).value,
+      slot_spent: level == 0 ? 0 : document.getElementById("slot_spent" + level).value,
+      spell_items: items,      
+    };
+  }
 
   const exportFile = () => {
 
@@ -226,6 +247,24 @@ function App() {
       treasure: document.getElementById('Treasure').value,
 
 
+      spell_class: document.getElementById('spell_class').value,
+      spell_modifier: document.getElementById('spell_modifier').value,
+      spell_dc: document.getElementById('spell_dc').value,
+      spell_attack: document.getElementById('spell_attack').value,
+
+      spells: [
+        spellItems(0,9),
+        spellItems(1,14),
+        spellItems(2,13),
+        spellItems(3,13),
+        spellItems(4,13),
+        spellItems(5,10),
+        spellItems(6,9),
+        spellItems(7,9),
+        spellItems(8,8),
+        spellItems(9,8),
+      ],
+      
     }
 
     const name = saveData.name.length > 0 ? saveData.name : "noname";
@@ -253,6 +292,22 @@ function App() {
     }
   }
 
+  const handleBeforeUnload = () => {
+
+    if (document.getElementById('autoSave').checked) {
+      exportFile();
+    }
+  }
+  
+  useEffect(() => {
+    window.addEventListener('beforeunload', handleBeforeUnload)
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload)
+    }
+  }, [handleBeforeUnload])
+
+
   return (
     <div className="App">
       <div className="AppHeader">
@@ -264,19 +319,19 @@ function App() {
           <input type="file" accept=".json" onChange={(e) => { selectedFile(e) }}></input>
         </div>
       </div>
-      <div className="Sheet">
+      <div className="Sheet Border">
         <div className="Content">
           <Sheet1 data={data}></Sheet1>
         </div>
       </div>
-      <div className="Page"></div>
-      <div className="Sheet">
+      <div className="Sheet Border">
         <div className="Content">
           <Sheet2 data={data}></Sheet2>
         </div>
       </div>
-      <div className="Sheet">
+      <div className="Sheet Border">
         <div className="Content">
+          <Sheet3 data={data}></Sheet3>
         </div>
       </div>
       <div className="AppFooter">

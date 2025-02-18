@@ -26,7 +26,7 @@ function Equipment(props) {
   return (
     <div className="Equipment">
       <div className="EquipmentTitle">
-        <label>装備 (EQUIPMENT)</label>
+        <label>装備</label>
       </div>
       <div className="EquipmentContent Row">
         <div className="EquipmentContentItem">

@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   width: 136mm;
-  height: 85mm;
+  height: 80mm;
   border: solid 2px gray;
   border-radius: 2mm;
 }
@@ -29,6 +29,6 @@
   resize: none;
   width: 95%;
   height: 95%;
-  margin: 1mm
-
+  margin: 1mm;
+  font-size: 10px;
 }
