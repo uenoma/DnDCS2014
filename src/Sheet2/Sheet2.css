@@ -14,13 +14,13 @@
 
 .Sheet2Left {
   width: calc((100% / 3) - 2mm);  
-  height: calc(100% - 35mm);
+  height: calc(100% - 38mm);
   justify-content: space-between;
 }
 
 .Sheet2Right {
   width: 138mm;  
-  height: calc(100% - 35mm);
+  height: calc(100% - 38mm);
   justify-content: space-between;
 
 }

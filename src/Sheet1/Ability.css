@@ -1,5 +1,6 @@
 .Ability {
   width: 100%;
+  height: 200mm;
 }
 
 .AbilitySets {
@@ -64,7 +65,7 @@
 .AbilityInspiration {
   width: 40mm;
   margin-left: 3mm;
-  margin-bottom: 3mm;
+  margin-bottom: 1mm;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -114,7 +115,7 @@
 
 .SavingThrows {
   margin-left: 3mm;
-  margin-bottom: 3mm;
+  margin-bottom: 2mm;
   padding-top: 2mm;
   text-align: center;
   border-radius: 2mm;
@@ -138,11 +139,12 @@
   border-bottom: solid 1px gray;
   text-align: center;
   margin-right: 1mm;
+  height: 4mm;
 }
 
 .Skills {
   margin-left: 3mm;
-  padding-top: 2mm;
+  padding-top: 1mm;
   text-align: center;
   border-radius: 2mm;
   border: solid 2px gray;
@@ -166,6 +168,7 @@
   border-bottom: solid 1px gray;
   text-align: center;
   margin-right: 1mm;
+  height: 4mm;
 }
 
 .SkillAbility {
@@ -175,7 +178,7 @@
 .AbilityPerception {
   width: 65mm;
   margin-top: 1mm;
-  margin-bottom: 3mm;
+  margin-bottom: 1mm;
   display: flex;
   flex-direction: row;
   align-items: center;

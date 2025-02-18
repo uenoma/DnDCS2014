@@ -1,6 +1,7 @@
 .App {
   width: 100%;
   box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
 }
 
 .AppHeader {
@@ -32,22 +33,26 @@
   width: 150px;
 }
 
-.AppFooter {
-  font-size: 8px;
-  margin: 0 10px 10px 10px;
-  white-space: nowrap;
+.Page {
+  page-break-before: always;
 }
 
 .Sheet {
   width: 210mm;
-  height: 297mm;
+  height: 295mm;
   border: solid 1px gray;
 }
 
 .Content {
-  width: calc(100% - 6mm);
-  height: calc(100% - 6mm);
-  margin: 3mm;
+  width: calc(100% - 4mm);
+  height: calc(100% - 4mm);
+  margin: 2mm;
+}
+
+.AppFooter {
+  font-size: 8px;
+  margin: 0 10px 10px 10px;
+  white-space: nowrap;
 }
 
 @media print{

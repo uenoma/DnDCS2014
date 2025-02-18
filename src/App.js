@@ -269,6 +269,7 @@ function App() {
           <Sheet1 data={data}></Sheet1>
         </div>
       </div>
+      <div className="Page"></div>
       <div className="Sheet">
         <div className="Content">
           <Sheet2 data={data}></Sheet2>

@@ -8,10 +8,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
 }
 
 .Sheet1Col {
-  width: calc((100% / 3) - 2mm);  
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  width: calc((100% / 3) - 2mm);  
 }

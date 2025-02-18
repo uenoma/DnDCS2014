@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   width: 62mm;
-  height: 172mm;
   border: solid 2px gray;
   border-radius: 2mm;
+  height: calc(100% - 85mm);
 }
 
 .BackstoryItem {
@@ -21,7 +21,7 @@
   resize: none;
   border: none;
   margin: 1mm;
-  width: 60mm;
+  width: 58mm;
   height: 100%;
   font-size: 10px;
 }
