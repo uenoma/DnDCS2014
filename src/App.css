@@ -6,11 +6,12 @@
 
 .AppHeader {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
   margin: 10px;
   font-size: 14px;
+  height: 60px;
 }
 
 @media print{
@@ -19,19 +20,34 @@
   }
 }
 
-.AppHeaderSave {
+.AppSaveButton {
   width: 200px;
-  margin-right: 10px;
+  margin-right: 2mm;
 }
 
-.AppHeaderSave button {
+.AppAutoSave {
   width: 200px;
-  margin-bottom: 15px;
+  margin-right: 2mm;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.AppHeaderAutoSave {
+.AppButtonRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.AppButtonRow label{
+  margin-right: 1mm;
+}
+
+.AppButtonRow.CCFOLIA button{
+  margin-right: 2mm;
   width: 150px;
 }
+
 
 .Page {
   page-break-before: always;

@@ -1,4 +1,3 @@
-import { act } from 'react';
 import './App.css';
 import { useState, useEffect } from 'react';
 import Sheet1 from './Sheet1/Sheet1'
@@ -15,7 +14,7 @@ function App() {
     for (let index = 0; index < count; index++) {
       items.push(
         {
-          checked: level == 0 ? true : document.getElementById("spell_checked" + level + "_" + index).checked,
+          checked: level === 0 ? true : document.getElementById("spell_checked" + level + "_" + index).checked,
           spell_name: document.getElementById("spell_name" + level + "_" + index).value,
         }
       );
@@ -23,15 +22,14 @@ function App() {
 
     return {
       level: level,
-      slot_num: level == 0 ? 0 : document.getElementById("slot_num" + level).value,
-      slot_spent: level == 0 ? 0 : document.getElementById("slot_spent" + level).value,
-      spell_items: items,      
+      slot_num: level === 0 ? 0 : document.getElementById("slot_num" + level).value,
+      slot_spent: level === 0 ? 0 : document.getElementById("slot_spent" + level).value,
+      spell_items: items,
     };
   }
 
-  const exportFile = () => {
-
-    const saveData = {
+  const currentData = () => {
+    return {
       name: document.getElementById("Sheet1Name").value,
 
       level: document.getElementById('BasicInfoLevel').value,
@@ -253,19 +251,24 @@ function App() {
       spell_attack: document.getElementById('spell_attack').value,
 
       spells: [
-        spellItems(0,9),
-        spellItems(1,14),
-        spellItems(2,13),
-        spellItems(3,13),
-        spellItems(4,13),
-        spellItems(5,10),
-        spellItems(6,9),
-        spellItems(7,9),
-        spellItems(8,8),
-        spellItems(9,8),
+        spellItems(0, 9),
+        spellItems(1, 14),
+        spellItems(2, 13),
+        spellItems(3, 13),
+        spellItems(4, 13),
+        spellItems(5, 10),
+        spellItems(6, 9),
+        spellItems(7, 9),
+        spellItems(8, 8),
+        spellItems(9, 8),
       ],
-      
+
     }
+  }
+
+  const exportFile = () => {
+
+    const saveData = currentData();
 
     const name = saveData.name.length > 0 ? saveData.name : "noname";
     const fileName = name + "_Lv" + saveData.level + ".json";
@@ -292,13 +295,152 @@ function App() {
     }
   }
 
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      window.alert("クリップボードにコピーしました。");
+    } catch (err) {
+      window.alert("出力に失敗しました。");
+    }
+  };
+
+  const modifier = (score) => {
+
+    if (!score) {
+      return "";
+    }
+    const value = Math.floor((score - 10) / 2);
+    return value > 0 ? "+" + value : value;
+  }
+
+  const stringForModifier = (value) => {
+    if (Number(value) >= 0) {
+      return "+" + Number(value);
+    }
+    return Number(value)
+  }
+
+  const chat = () => {
+    const data = currentData();
+
+    const text = 
+    "1d20" + stringForModifier(Number(data.initiative)) + "  ▼イニシアチブ\n" +
+    "■攻撃===========================================\n" +
+    "1d20" + stringForModifier(Number(modifier(data.stats.strength)) + Number(data.proficiency_bonus)) + " ▼[筋力]攻撃ロール\n" +
+    "1d20" + stringForModifier(Number(modifier(data.stats.dexterity)) + Number(data.proficiency_bonus)) + " ▼[敏捷力]攻撃ロール\n" +
+    "1d20" + stringForModifier(Number(data.spell_attack)) + " ▼呪文攻撃ロール\n" +
+    "■能力値判定=====================================\n" +
+    "1d20" + stringForModifier(Number(modifier(data.stats.strength))) + " ▼【筋力】能力値判定\n" +
+    "1d20" + stringForModifier(Number(modifier(data.stats.dexterity))) + " ▼【敏捷力】能力値判定\n" +
+    "1d20" + stringForModifier(Number(modifier(data.stats.constitution))) + " ▼【耐久力】能力値判定\n" +
+    "1d20" + stringForModifier(Number(modifier(data.stats.intelligence))) + " ▼【知力】能力値判定\n" +
+    "1d20" + stringForModifier(Number(modifier(data.stats.wisdom))) + " ▼【判断力】能力値判定\n" +
+    "1d20" + stringForModifier(Number(modifier(data.stats.charisma))) + " ▼【魅力】能力値判定\n" +
+    "■セーヴィング・スロー============================\n" +
+    "1d20" + (stringForModifier(data.saving_throws.strength_save)) + " ▼【筋力】セーヴィングスロー\n" +
+    "1d20" + (stringForModifier(data.saving_throws.dexterity_save)) + " ▼【敏捷力】セーヴィングスロー\n" +
+    "1d20" + (stringForModifier(data.saving_throws.constitution_save)) + " ▼【耐久力】セーヴィングスロー\n" +
+    "1d20" + (stringForModifier(data.saving_throws.intelligence_save)) + " ▼【知力】セーヴィングスロー\n" +
+    "1d20" + (stringForModifier(data.saving_throws.wisdom_save)) + " ▼【判断力】セーヴィングスロー\n" +
+    "1d20" + (stringForModifier(data.saving_throws.charisma_save)) + " ▼【魅力】セーヴィングスロー\n" +
+    "■技能============================================\n" +
+    "1d20" + stringForModifier(Number(data.skills.intimidation)) + " ▼〈威圧〉【魅】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.medicine)) + " ▼〈医術〉【判】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.athletics)) + " ▼〈運動〉【筋】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.stealth)) + " ▼〈隠密〉【敏】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.acrobatics)) + " ▼〈軽業〉【敏】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.insight)) + " ▼〈看破〉【判】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.performance)) + " ▼〈芸能〉【魅】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.nature)) + " ▼〈自然〉【知】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.religion)) + " ▼〈宗教〉【知】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.survival)) + " ▼〈生存〉【判】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.persuasion)) + " ▼〈説得〉【魅】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.investigation)) + " ▼〈捜査〉【知】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.perception)) + " ▼〈知覚〉【判】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.sleight_of_hand)) + " ▼〈手先の早業〉【敏】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.animal_handling)) + " ▼〈動物使い〉【判】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.deception)) + " ▼〈ペテン〉【魅】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.arcana)) + " ▼〈魔法学〉【知】技能判定\n" +
+    "1d20" + stringForModifier(Number(data.skills.history)) + " ▼〈歴史〉【知】技能判定\n";
+    return text;
+  }
+
+  const exportChat = (e) => {
+
+    copyToClipboard(chat());
+  }
+
+  const exportUnit = (e) => {
+
+    const data = currentData();
+
+    const unitData = {
+      "kind": "character",
+      "data": {
+        "name": data.name,
+        "initiative": Number(data.initiative),
+        "externalUrl": "https://uenoma.sakura.ne.jp/dndcs2014/",
+        "iconUrl": "",
+        "commands": chat(),
+        "status": [
+          {
+            "label": "HP",
+            "value": Number(data.hp.value),
+            "max": data.hp.max
+          },
+          {
+            "label": "TEMP",
+            "value": Number(data.hp.temp)
+          },
+          {
+            "label": "AC",
+            "value": Number(data.armor_class.value)
+          },
+          {
+            "label": "受動知覚",
+            "value": data.passive_perception
+          }
+        ],
+        "params": [
+          {
+            "label": "STR",
+            "value": data.stats.strength
+          },
+          {
+            "label": "DEX",
+            "value": data.stats.dexterity
+          },
+          {
+            "label": "CON",
+            "value": data.stats.constitution
+          },
+          {
+            "label": "INT",
+            "value": data.stats.intelligence
+          },
+          {
+            "label": "WIS",
+            "value": data.stats.wisdom
+          },
+          {
+            "label": "CHA",
+            "value": data.stats.charisma
+          }
+        ]
+      }
+    }
+
+    copyToClipboard(JSON.stringify(unitData));
+
+  }
+
   const handleBeforeUnload = () => {
 
     if (document.getElementById('autoSave').checked) {
       exportFile();
     }
   }
-  
+
   useEffect(() => {
     window.addEventListener('beforeunload', handleBeforeUnload)
 
@@ -311,14 +453,17 @@ function App() {
   return (
     <div className="App">
       <div className="AppHeader">
-        <div className="AppHeaderSave">
-          <button onClick={(e) => { exportFile(e) }}>保存</button>
-          <label className="AppHeaderAutoSave"><input type="checkbox" id="autoSave" ></input>自動保存</label>
+        <div className="AppButtonRow">
+          <button onClick={(e) => { exportFile(e) }} className="AppSaveButton">保存</button>
+          <input type="file" accept=".json" onChange={(e) => { selectedFile(e) }} className="AppLoadButton"></input>
+          <label className="AppAutoSave"><input type="checkbox" id="autoSave" ></input>自動保存</label>
         </div>
-        <div className="AppHeaderLoad">
-          <input type="file" accept=".json" onChange={(e) => { selectedFile(e) }}></input>
+        <div className="AppButtonRow CCFOLIA">
+          <label>CCFOLIA</label><button onClick={(e) => { exportChat(e) }}>チャットパレット出力</button><button onClick={(e) => { exportUnit(e) }}>駒出力</button>
         </div>
+
       </div>
+
       <div className="Sheet Border">
         <div className="Content">
           <Sheet1 data={data}></Sheet1>
