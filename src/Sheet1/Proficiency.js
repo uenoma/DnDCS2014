@@ -1,5 +1,5 @@
 import './Proficiency.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 function Proficiency(props) {
 

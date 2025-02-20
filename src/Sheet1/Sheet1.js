@@ -7,7 +7,7 @@ import Weapon from './Weapon';
 import Equipment from './Equipment';
 import Background from './Background';
 import Features from './Features';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 function Sheet1(props) {
 

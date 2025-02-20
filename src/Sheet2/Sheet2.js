@@ -1,7 +1,7 @@
 import './Sheet2.css';
 import Sheet2Header from './Sheet2Header'
 import Appearance from './Appearance'
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Backstory from './Backstory';
 import SpeciesTraits from './SpeciesTraits';
 import Treasure from './Treasure';

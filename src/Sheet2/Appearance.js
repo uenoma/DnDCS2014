@@ -28,7 +28,7 @@ function Appearance(props) {
   return (
     <div className="Appearance">
       <div className="AppearanceContent">
-        <img src={image}></img>
+        <img src={image} alt="外見"></img>
         <textarea id="Appearance"></textarea>
       </div>
       <div className="AppearanceContentURL">

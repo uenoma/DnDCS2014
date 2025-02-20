@@ -1,5 +1,5 @@
 import './Ability.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 function Ability(props) {
 

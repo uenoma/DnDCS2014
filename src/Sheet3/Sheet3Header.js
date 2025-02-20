@@ -1,5 +1,5 @@
 import './Sheet3Header.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 function Sheet3Header(props) {
 

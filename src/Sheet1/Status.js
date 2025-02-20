@@ -1,5 +1,5 @@
 import './Status.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 function Status(props) {
 

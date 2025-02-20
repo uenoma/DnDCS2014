@@ -33,7 +33,7 @@ function Symbol(props) {
         <input id="SymbolName"></input>
       </div>
       <div className="SymbolContent">
-        <img src={image}></img>
+        <img src={image} alt="シンボル"></img>
         <textarea id="SymbolText"></textarea>
       </div>
       <div className="SymbolTitle Center">

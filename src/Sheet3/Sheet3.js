@@ -2,7 +2,7 @@ import './Sheet3.css';
 import Sheet3Header from './Sheet3Header'
 import Spells from './Spells'
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 
 function Sheet3(props) {
