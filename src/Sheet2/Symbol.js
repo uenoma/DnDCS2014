@@ -21,7 +21,7 @@ function Symbol(props) {
       document.getElementById("SymbolName").value = props.data.organization.symbol_name;
       if (props.data.organization.image_url) {
         document.getElementById("SymbolImageUrl").value = props.data.organization.image_url;
-        setImage(props.data.Symbol.image_url);
+        setImage(props.data.organization.image_url);
       }
     }
   }, [props]);

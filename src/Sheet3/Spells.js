@@ -7,14 +7,14 @@ function Spells(props) {
     if (props.data && props.data.spells) {
 
       const spellItem = props.data.spells[Number(props.spellLevel)];
-      if (props.spellLevel !== 0) {
+      if (props.spellLevel != 0) {
         document.getElementById('slot_num' + props.spellLevel).value = spellItem.slot_num;
         document.getElementById('slot_spent' + props.spellLevel).value = spellItem.slot_spent;
       }
 
       spellItem.spell_items.forEach((item, index) => {
         document.getElementById("spell_name" + props.spellLevel + "_" + index).value = item.spell_name;
-        if (props.spellLevel !== 0) {
+        if (props.spellLevel != 0) {
           document.getElementById("spell_checked" + props.spellLevel + "_" + index).checked = item.checked;
         }
         index++;
@@ -23,7 +23,7 @@ function Spells(props) {
   }, [props]);
 
   const header = () => {
-    if (props.spellLevel !== 0) {
+    if (props.spellLevel != 0) {
       return (
         <div className="SpellsHeader">
           <div className="SpellsHeaderLevel">{props.spellLevel}</div>
@@ -46,7 +46,7 @@ function Spells(props) {
     let items = [];
     for (let index = 0; index < props.count; index++) {
 
-      let check = props.spellLevel !== 0 ? <input type="checkbox" id={"spell_checked" + props.spellLevel + "_" + index}></input> : "";
+      let check = props.spellLevel != 0 ? <input type="checkbox" id={"spell_checked" + props.spellLevel + "_" + index}></input> : "";
 
       items.push(
         <div className="SpellsItem" key={"spell_name" + props.spellLevel + "_" + index}>
