@@ -16,7 +16,7 @@ function Symbol(props) {
   }
 
   useEffect(() => {
-    if (props.data) {
+    if (props.data && props.data.organization) {
       document.getElementById("SymbolText").value = props.data.organization.symbol;
       document.getElementById("SymbolName").value = props.data.organization.symbol_name;
       if (props.data.organization.image_url) {

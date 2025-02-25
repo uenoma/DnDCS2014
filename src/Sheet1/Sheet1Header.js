@@ -7,8 +7,16 @@ function Sheet1Header(props) {
     if (props.data) {
       document.getElementById('Sheet1Name').value = props.data.name;
       document.getElementById('BasicInfoLevel').value = props.data.level;
-      document.getElementById('BasicInfoBackground').value = props.data.background.type;
-      document.getElementById('BasicInfoPlayerName').value = props.data.player_name;
+      if (props.data.background.type) {
+        document.getElementById('BasicInfoBackground').value = props.data.background.type;
+      } else {
+        if(typeof props.data.background === 'string') {
+          document.getElementById('BasicInfoBackground').value = props.data.background;
+        }
+      }
+      if (props.data.player_name) {
+        document.getElementById('BasicInfoPlayerName').value = props.data.player_name;
+      }
       document.getElementById('BasicInfoSpecies').value = props.data.species;
       document.getElementById('BasicInfoAlignment').value = props.data.alignment;
       document.getElementById('BasicInfoXP').value = props.data.xp;

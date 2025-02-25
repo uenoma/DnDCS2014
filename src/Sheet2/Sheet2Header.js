@@ -6,12 +6,14 @@ function Sheet2Header(props) {
   useEffect(() => {
     if (props.data) {
       document.getElementById('Sheet2Name').value = props.data.name;
-      document.getElementById('BasicInfoAge').value = props.data.basic_info.age;
-      document.getElementById('BasicInfoHeight').value = props.data.basic_info.height;
-      document.getElementById('BasicInfoWeight').value = props.data.basic_info.weight;
-      document.getElementById('BasicInfoEyes').value = props.data.basic_info.eyes;
-      document.getElementById('BasicInfoSkin').value = props.data.basic_info.skin;
-      document.getElementById('BasicInfoHair').value = props.data.basic_info.hair;
+      if (props.data.basic_info) {
+        document.getElementById('BasicInfoAge').value = props.data.basic_info.age;
+        document.getElementById('BasicInfoHeight').value = props.data.basic_info.height;
+        document.getElementById('BasicInfoWeight').value = props.data.basic_info.weight;
+        document.getElementById('BasicInfoEyes').value = props.data.basic_info.eyes;
+        document.getElementById('BasicInfoSkin').value = props.data.basic_info.skin;
+        document.getElementById('BasicInfoHair').value = props.data.basic_info.hair;
+      }
     }
   }, [props]);
 

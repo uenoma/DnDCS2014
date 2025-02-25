@@ -4,12 +4,18 @@ import { useEffect } from 'react';
 function Sheet3Header(props) {
 
   useEffect(() => {
-    if (props.data) {
-      document.getElementById('spell_class').value = props.data.spell_class;
-      document.getElementById('spell_modifier').value = props.data.spell_modifier;
-      document.getElementById('spell_dc').value = props.data.spell_dc;
-      document.getElementById('spell_attack').value = props.data.spell_attack;
 
+    if (props.data) {
+      if (props.data.spell_ability) {
+        document.getElementById('spell_modifier').value = props.data.spell_ability.modifier;
+        document.getElementById('spell_dc').value = props.data.spell_ability.save_dc;
+        document.getElementById('spell_attack').value = props.data.spell_ability.attack_bonus;
+      } else {
+        document.getElementById('spell_class').value = props.data.spell_class;
+        document.getElementById('spell_modifier').value = props.data.spell_modifier;
+        document.getElementById('spell_dc').value = props.data.spell_dc;
+        document.getElementById('spell_attack').value = props.data.spell_attack;
+      }
     }
   }, [props]);
 
