@@ -167,7 +167,7 @@ function Ability(props) {
             <label>セーヴィング・スロー</label>
           </div>
           <div className="Skills">
-            {skill("intimidation", "威圧", "筋力")}
+            {skill("intimidation", "威圧", "魅力")}
             {skill("medicine", "医術", "判断力")}
             {skill("athletics", "運動", "筋力")}
             {skill("stealth", "隠密", "敏捷力")}
