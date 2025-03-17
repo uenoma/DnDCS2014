@@ -11,7 +11,7 @@
   align-items: space-between;
   margin: 10px;
   font-size: 14px;
-  height: 60px;
+  height: 90px;
 }
 
 @media print{
@@ -21,7 +21,7 @@
 }
 
 .AppSaveButton {
-  width: 200px;
+  width: 120px;
   margin-right: 2mm;
 }
 
@@ -37,10 +37,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 5px;
 }
 
 .AppButtonRow label{
   margin-right: 1mm;
+  width: 60px;
 }
 
 .AppButtonRow.CCFOLIA button{

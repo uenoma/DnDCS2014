@@ -7,7 +7,7 @@ function Sheet1Header(props) {
     if (props.data) {
       document.getElementById('Sheet1Name').value = props.data.name;
       document.getElementById('BasicInfoLevel').value = props.data.level;
-      if (props.data.background.type) {
+      if (props.data.background && props.data.background.type) {
         document.getElementById('BasicInfoBackground').value = props.data.background.type;
       } else {
         if(typeof props.data.background === 'string') {

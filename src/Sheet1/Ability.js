@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 function Ability(props) {
 
   useEffect(() => {
-    if (props.data) {
+    if (props.data && props.data.stats) {
       document.getElementById("score_strength").value = props.data.stats.strength;
       document.getElementById("score_dexterity").value = props.data.stats.dexterity;
       document.getElementById("score_constitution").value = props.data.stats.constitution;

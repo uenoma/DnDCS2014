@@ -3,10 +3,30 @@ import { useState, useEffect } from 'react';
 import Sheet1 from './Sheet1/Sheet1'
 import Sheet2 from './Sheet2/Sheet2'
 import Sheet3 from './Sheet3/Sheet3'
+import axios from 'axios';
 
 function App() {
 
   const [data, setData] = useState(null)
+  const [characterId, setCharacterId] = useState(null);
+  const [password, setPassword] = useState(null);
+
+  const fetchCharacterData = async (id) => {
+    if (!id) {
+      return;
+    }
+
+    try {
+      const api = "https://uenoma.sakura.ne.jp/services/dnd_characters2014/public/api/characters/" + id;
+      const response = await axios.get(api);
+      setCharacterId(response.data.id);
+      setData(JSON.parse(response.data.details));
+    }
+    catch (error) {
+      console.log('Error:', error);
+    }
+
+  }
 
   const spellItems = (level, count) => {
 
@@ -37,6 +57,8 @@ function App() {
       species: document.getElementById('BasicInfoSpecies').value,
       alignment: document.getElementById('BasicInfoAlignment').value,
       xp: document.getElementById('BasicInfoXP').value,
+
+      password: document.getElementById('savePassword').value,
 
       basic_info: {
 
@@ -266,6 +288,50 @@ function App() {
     }
   }
 
+  const saveDB = async () => {
+    try {
+      console.log("Window.location = ", window.location)
+
+
+      if (document.getElementById('savePassword').value.length === 0) {
+        window.alert("パスワードが設定されていません。");
+        return;
+      }
+      if (document.getElementById('savePassword').value.length < 8) {
+        window.alert("パスワードは8文字以上です。");
+        return;
+      }
+
+      const saveData = currentData();
+      if ((saveData.name.length === 0) || 
+          (saveData.level.length === 0) || 
+          (saveData.player_name.length === 0) || 
+          (saveData.species.length === 0) || 
+          (saveData.alignment.length === 0)) {  
+        window.alert("キャラクター名、クラス＆レベル、プレイヤー名、種族、属性は必須です。");
+        return;
+      }
+
+      let api = "https://uenoma.sakura.ne.jp/services/dnd_characters2014/public/api/characters.store/";
+      if (characterId) {
+        api = "https://uenoma.sakura.ne.jp/services/dnd_characters2014/public/api/characters.update/" + characterId;
+      }
+
+      const response = await axios.post(api, saveData);
+      window.alert("保存しました。");
+      console.log(response.data);
+      window.location.href = window.location.origin + "/?id=" + response.data.character.id;
+
+    } catch (error) {
+      console.error('Error:', error);
+      if (error.status === 403) {
+        window.alert("パスワードが違います。");
+      } else {
+        window.alert("保存に失敗しました。");
+      }
+    }
+  }
+
   const exportFile = () => {
 
     const saveData = currentData();
@@ -323,45 +389,45 @@ function App() {
   const chat = () => {
     const data = currentData();
 
-    const text = 
-    "1d20" + stringForModifier(Number(data.initiative)) + "  ▼イニシアチブ\n" +
-    "■攻撃===========================================\n" +
-    "1d20" + stringForModifier(Number(modifier(data.stats.strength)) + Number(data.proficiency_bonus)) + " ▼[筋力]攻撃ロール\n" +
-    "1d20" + stringForModifier(Number(modifier(data.stats.dexterity)) + Number(data.proficiency_bonus)) + " ▼[敏捷力]攻撃ロール\n" +
-    "1d20" + stringForModifier(Number(data.spell_attack)) + " ▼呪文攻撃ロール\n" +
-    "■能力値判定=====================================\n" +
-    "1d20" + stringForModifier(Number(modifier(data.stats.strength))) + " ▼【筋力】能力値判定\n" +
-    "1d20" + stringForModifier(Number(modifier(data.stats.dexterity))) + " ▼【敏捷力】能力値判定\n" +
-    "1d20" + stringForModifier(Number(modifier(data.stats.constitution))) + " ▼【耐久力】能力値判定\n" +
-    "1d20" + stringForModifier(Number(modifier(data.stats.intelligence))) + " ▼【知力】能力値判定\n" +
-    "1d20" + stringForModifier(Number(modifier(data.stats.wisdom))) + " ▼【判断力】能力値判定\n" +
-    "1d20" + stringForModifier(Number(modifier(data.stats.charisma))) + " ▼【魅力】能力値判定\n" +
-    "■セーヴィング・スロー============================\n" +
-    "1d20" + (stringForModifier(data.saving_throws.strength_save)) + " ▼【筋力】セーヴィングスロー\n" +
-    "1d20" + (stringForModifier(data.saving_throws.dexterity_save)) + " ▼【敏捷力】セーヴィングスロー\n" +
-    "1d20" + (stringForModifier(data.saving_throws.constitution_save)) + " ▼【耐久力】セーヴィングスロー\n" +
-    "1d20" + (stringForModifier(data.saving_throws.intelligence_save)) + " ▼【知力】セーヴィングスロー\n" +
-    "1d20" + (stringForModifier(data.saving_throws.wisdom_save)) + " ▼【判断力】セーヴィングスロー\n" +
-    "1d20" + (stringForModifier(data.saving_throws.charisma_save)) + " ▼【魅力】セーヴィングスロー\n" +
-    "■技能============================================\n" +
-    "1d20" + stringForModifier(Number(data.skills.intimidation)) + " ▼〈威圧〉【魅】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.medicine)) + " ▼〈医術〉【判】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.athletics)) + " ▼〈運動〉【筋】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.stealth)) + " ▼〈隠密〉【敏】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.acrobatics)) + " ▼〈軽業〉【敏】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.insight)) + " ▼〈看破〉【判】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.performance)) + " ▼〈芸能〉【魅】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.nature)) + " ▼〈自然〉【知】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.religion)) + " ▼〈宗教〉【知】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.survival)) + " ▼〈生存〉【判】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.persuasion)) + " ▼〈説得〉【魅】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.investigation)) + " ▼〈捜査〉【知】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.perception)) + " ▼〈知覚〉【判】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.sleight_of_hand)) + " ▼〈手先の早業〉【敏】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.animal_handling)) + " ▼〈動物使い〉【判】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.deception)) + " ▼〈ペテン〉【魅】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.arcana)) + " ▼〈魔法学〉【知】技能判定\n" +
-    "1d20" + stringForModifier(Number(data.skills.history)) + " ▼〈歴史〉【知】技能判定\n";
+    const text =
+      "1d20" + stringForModifier(Number(data.initiative)) + "  ▼イニシアチブ\n" +
+      "■攻撃===========================================\n" +
+      "1d20" + stringForModifier(Number(modifier(data.stats.strength)) + Number(data.proficiency_bonus)) + " ▼[筋力]攻撃ロール\n" +
+      "1d20" + stringForModifier(Number(modifier(data.stats.dexterity)) + Number(data.proficiency_bonus)) + " ▼[敏捷力]攻撃ロール\n" +
+      "1d20" + stringForModifier(Number(data.spell_attack)) + " ▼呪文攻撃ロール\n" +
+      "■能力値判定=====================================\n" +
+      "1d20" + stringForModifier(Number(modifier(data.stats.strength))) + " ▼【筋力】能力値判定\n" +
+      "1d20" + stringForModifier(Number(modifier(data.stats.dexterity))) + " ▼【敏捷力】能力値判定\n" +
+      "1d20" + stringForModifier(Number(modifier(data.stats.constitution))) + " ▼【耐久力】能力値判定\n" +
+      "1d20" + stringForModifier(Number(modifier(data.stats.intelligence))) + " ▼【知力】能力値判定\n" +
+      "1d20" + stringForModifier(Number(modifier(data.stats.wisdom))) + " ▼【判断力】能力値判定\n" +
+      "1d20" + stringForModifier(Number(modifier(data.stats.charisma))) + " ▼【魅力】能力値判定\n" +
+      "■セーヴィング・スロー============================\n" +
+      "1d20" + (stringForModifier(data.saving_throws.strength_save)) + " ▼【筋力】セーヴィングスロー\n" +
+      "1d20" + (stringForModifier(data.saving_throws.dexterity_save)) + " ▼【敏捷力】セーヴィングスロー\n" +
+      "1d20" + (stringForModifier(data.saving_throws.constitution_save)) + " ▼【耐久力】セーヴィングスロー\n" +
+      "1d20" + (stringForModifier(data.saving_throws.intelligence_save)) + " ▼【知力】セーヴィングスロー\n" +
+      "1d20" + (stringForModifier(data.saving_throws.wisdom_save)) + " ▼【判断力】セーヴィングスロー\n" +
+      "1d20" + (stringForModifier(data.saving_throws.charisma_save)) + " ▼【魅力】セーヴィングスロー\n" +
+      "■技能============================================\n" +
+      "1d20" + stringForModifier(Number(data.skills.intimidation)) + " ▼〈威圧〉【魅】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.medicine)) + " ▼〈医術〉【判】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.athletics)) + " ▼〈運動〉【筋】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.stealth)) + " ▼〈隠密〉【敏】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.acrobatics)) + " ▼〈軽業〉【敏】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.insight)) + " ▼〈看破〉【判】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.performance)) + " ▼〈芸能〉【魅】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.nature)) + " ▼〈自然〉【知】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.religion)) + " ▼〈宗教〉【知】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.survival)) + " ▼〈生存〉【判】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.persuasion)) + " ▼〈説得〉【魅】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.investigation)) + " ▼〈捜査〉【知】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.perception)) + " ▼〈知覚〉【判】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.sleight_of_hand)) + " ▼〈手先の早業〉【敏】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.animal_handling)) + " ▼〈動物使い〉【判】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.deception)) + " ▼〈ペテン〉【魅】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.arcana)) + " ▼〈魔法学〉【知】技能判定\n" +
+      "1d20" + stringForModifier(Number(data.skills.history)) + " ▼〈歴史〉【知】技能判定\n";
     return text;
   }
 
@@ -449,12 +515,22 @@ function App() {
     }
   }, [handleBeforeUnload])
 
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+    const id = params.get('id');
+    fetchCharacterData(id);
+  }, [])
 
   return (
     <div className="App">
       <div className="AppHeader">
         <div className="AppButtonRow">
-          <button onClick={(e) => { exportFile(e) }} className="AppSaveButton">保存</button>
+          <label>DATABASE</label><button onClick={(e) => { saveDB(e) }} className="AppSaveButton">DB保存</button>
+          パスワード：<input type="password" id="savePassword" placeholder='8文字以上'></input>
+        </div>
+        <div className="AppButtonRow">
+          <label>JSON</label><button onClick={(e) => { exportFile(e) }} className="AppSaveButton">JSON出力</button>
           <input type="file" accept=".json" onChange={(e) => { selectedFile(e) }} className="AppLoadButton"></input>
           <label className="AppAutoSave"><input type="checkbox" id="autoSave" ></input>自動保存</label>
         </div>

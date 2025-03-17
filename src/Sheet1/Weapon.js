@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 function Weapon(props) {
 
   useEffect(() => {
-    if (props.data) {
+    if (props.data && props.data.actions) {
       props.data.actions.forEach((action, index) => {
         if (index < 5) {
           document.getElementById('col_name' + index).value = action.name;
