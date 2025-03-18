@@ -13,6 +13,11 @@ function App() {
   const [characterId, setCharacterId] = useState(null);
   const [password, setPassword] = useState(null);
 
+  const linkShare = () => {
+    const url = "https://dndhideout.com/dndcs2014/?id=" + characterId;
+    copyToClipboard(url);
+  }
+
   const fetchCharacterData = async (id) => {
     if (!id) {
       return;
@@ -303,11 +308,11 @@ function App() {
       }
 
       const saveData = currentData();
-      if ((saveData.name.length === 0) || 
-          (saveData.level.length === 0) || 
-          (saveData.player_name.length === 0) || 
-          (saveData.species.length === 0) || 
-          (saveData.alignment.length === 0)) {  
+      if ((saveData.name.length === 0) ||
+        (saveData.level.length === 0) ||
+        (saveData.player_name.length === 0) ||
+        (saveData.species.length === 0) ||
+        (saveData.alignment.length === 0)) {
         window.alert("キャラクター名、クラス＆レベル、プレイヤー名、種族、属性は必須です。");
         return;
       }
@@ -323,7 +328,7 @@ function App() {
 
       const response = await axios.post(api, saveData);
       window.alert("保存しました。");
-      window.location.href = "https://dndhideout.com/dndcs2014_test/?id=" + response.data.character.id;
+      window.location.href = "https://dndhideout.com/dndcs2014/?id=" + response.data.character.id;
 
     } catch (error) {
       console.error('Error:', error);
@@ -525,12 +530,22 @@ function App() {
     fetchCharacterData(id);
   }, [])
 
+  const shareButton = () =>{
+    if (characterId) {
+      return <button onClick={(e) => { linkShare(e) }} className="AppShareButton">URLコピー</button>
+    }
+  }
+
   return (
     <div className="App">
       <div className="AppHeader">
         <div className="AppButtonRow">
+          <a href="https://uenoma.sakura.ne.jp/services/characters/">一覧に戻る</a>
+        </div>
+        <div className="AppButtonRow">
           <label>DATABASE</label><button onClick={(e) => { saveDB(e) }} className="AppSaveButton">DB保存</button>
           パスワード：<input type="password" id="savePassword" placeholder='8文字以上'></input>
+          {shareButton()}
         </div>
         <div className="AppButtonRow">
           <label>JSON</label><button onClick={(e) => { exportFile(e) }} className="AppSaveButton">JSON出力</button>
