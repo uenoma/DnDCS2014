@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 function Background(props) {
 
   useEffect(() => {
-    if (props.data && props.data.background.details) {
+    if (props.data && props.data.background && props.data.background.details) {
       document.getElementById("Background1").value = props.data.background.details[0];
       document.getElementById("Background2").value = props.data.background.details[1];
       document.getElementById("Background3").value = props.data.background.details[2];

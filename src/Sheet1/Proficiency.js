@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 function Proficiency(props) {
 
   useEffect(() => {
-    if (props.data) {
+    if (props.data && props.data.proficiency) {
       document.getElementById("proficiency").value = props.data.proficiency.text;
     }
   }, [props]);

@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 function Status(props) {
 
   useEffect(() => {
-    if (props.data) {
+    if (props.data && props.data.armor_class) {
 
       document.getElementById('ArmorClassValue').value = props.data.armor_class.value;
       document.getElementById('initiative').value = props.data.initiative;
