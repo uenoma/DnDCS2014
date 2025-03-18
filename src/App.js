@@ -7,6 +7,8 @@ import axios from 'axios';
 
 function App() {
 
+  const host = "https://dndhideout.com/services/dnd_characters2014/public/";
+
   const [data, setData] = useState(null)
   const [characterId, setCharacterId] = useState(null);
   const [password, setPassword] = useState(null);
@@ -17,7 +19,7 @@ function App() {
     }
 
     try {
-      const api = "https://uenoma.sakura.ne.jp/services/dnd_characters2014/public/api/characters/" + id;
+      const api = host + "api/characters/" + id;
       const response = await axios.get(api);
       setCharacterId(response.data.id);
       setData(JSON.parse(response.data.details));
@@ -294,7 +296,7 @@ function App() {
 
 
       if (document.getElementById('savePassword').value.length === 0) {
-        window.alert("パスワードが設定されていません。");
+        window.alert("パスワードを入力してください。");
         return;
       }
       if (document.getElementById('savePassword').value.length < 8) {
@@ -312,15 +314,15 @@ function App() {
         return;
       }
 
-      let api = "https://uenoma.sakura.ne.jp/services/dnd_characters2014/public/api/characters.store/";
+      let api = host + "api/characters.store";
       if (characterId) {
-        api = "https://uenoma.sakura.ne.jp/services/dnd_characters2014/public/api/characters.update/" + characterId;
+        api = host + "api/characters.update/" + characterId;
       }
 
       const response = await axios.post(api, saveData);
       window.alert("保存しました。");
       console.log(response.data);
-      window.location.href = window.location.origin + "/?id=" + response.data.character.id;
+      window.location.href = "https://dndhideout.com/dndcs2014_test/?id=" + response.data.character.id;
 
     } catch (error) {
       console.error('Error:', error);
