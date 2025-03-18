@@ -292,8 +292,6 @@ function App() {
 
   const saveDB = async () => {
     try {
-      console.log("Window.location = ", window.location)
-
 
       if (document.getElementById('savePassword').value.length === 0) {
         window.alert("パスワードを入力してください。");
@@ -317,11 +315,14 @@ function App() {
       let api = host + "api/characters.store";
       if (characterId) {
         api = host + "api/characters.update/" + characterId;
+      } else {
+        if (!window.confirm("新規保存します。よろしいですか？\n\n※パスワードを忘れるとデータを編集できなくなります。")) {
+          return;
+        }
       }
 
       const response = await axios.post(api, saveData);
       window.alert("保存しました。");
-      console.log(response.data);
       window.location.href = "https://dndhideout.com/dndcs2014_test/?id=" + response.data.character.id;
 
     } catch (error) {
