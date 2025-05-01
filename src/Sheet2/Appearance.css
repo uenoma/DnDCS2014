@@ -51,3 +51,9 @@
   border: none;
   border-bottom: solid 1px gray;
 }
+
+@media print{
+  .AppearanceContentURL {
+      opacity: 0;
+  }
+}
