@@ -62,3 +62,9 @@
   width: 95%;
   border: none;
 }
+
+@media print{
+  .SymbolContentURL {
+      opacity: 0;
+  }
+}

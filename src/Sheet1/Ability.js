@@ -1,7 +1,10 @@
 import './Ability.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import PointBuyModal from './PointBuyModal';
 
 function Ability(props) {
+
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (props.data && props.data.stats) {
@@ -128,7 +131,7 @@ function Ability(props) {
       <div className="AbilitySet">
         <div className="AbilitySetModifier">
           <div><label>【{typeJP}】</label></div>
-          <input id={"modifier_" + type}></input>
+          <input id={"modifier_" + type} readOnly></input>
         </div>
         <div className="AbilitySetScore">
           <input id={"score_" + type} onChange={(e) => { changeScore(e, type) }}></input>
@@ -137,8 +140,35 @@ function Ability(props) {
     );
   }
 
+
+  const pushedPointBuy = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = (needSave, values) => {
+    setShowModal(false);
+    if (needSave) {
+      document.getElementById("score_strength").value = values.strength;
+      document.getElementById("score_dexterity").value = values.dexterity;
+      document.getElementById("score_constitution").value = values.constitution;
+      document.getElementById("score_intelligence").value = values.intelligence;
+      document.getElementById("score_wisdom").value = values.wisdom;
+      document.getElementById("score_charisma").value = values.charisma;
+
+      updateModifier();
+    }
+  };
+
+  const pointBuyModal = () => {
+    if (showModal) {
+      return <PointBuyModal show={showModal} onClose={closeModal} ></PointBuyModal>
+    }
+    return null
+  }
+
   return (
     <div className="Ability Col">
+      {pointBuyModal()}
       <div className="Row">
         <div className="AbilitySets Col">
           {abilitySet("strength", "筋力")}
@@ -147,6 +177,7 @@ function Ability(props) {
           {abilitySet("intelligence", "知力")}
           {abilitySet("wisdom", "判断力")}
           {abilitySet("charisma", "魅力")}
+          <button className="AbilityButton" id="ButtonPointBuy" onClick={(e) => pushedPointBuy(e)}>Point Buy</button>
         </div>
         <div className="Col">
           <div className="AbilityInspiration Row">
