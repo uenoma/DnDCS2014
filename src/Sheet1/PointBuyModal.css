@@ -96,6 +96,10 @@
   cursor: pointer;
 }
 
+.PointBuyModalButtons button:hover {
+  opacity: 0.5;
+}
+
 .PointBuyModalPointValueMinus {
   color: red;
 }
