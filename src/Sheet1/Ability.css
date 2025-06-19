@@ -162,6 +162,11 @@
   font-size: 9px;
 }
 
+.SkillNameEn {
+  font-size: 6px;
+  text-align: left;
+}
+
 .SkillSetValue {
   width: 6mm;
   border: none;

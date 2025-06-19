@@ -112,14 +112,17 @@ function Ability(props) {
     )
   }
 
-  const skill = (type, typeJP, abilityJP) => {
+  const skill = (type, typeEn, typeJP, abilityJP) => {
     return (
       <div className="SkillSet">
         <input id={type + "_checked"} type="checkbox"></input>
         <input id={type} className="SkillSetValue"></input>
-        <div className="Row">
-          <label>{"<"}{typeJP}{">"}</label>
-          <label className="SkillAbility">【{abilityJP}】</label>
+        <div className="Col">
+          <div className="SkillNameEn">{typeEn}</div>
+          <div className="Row">
+            <label>{"<"}{typeJP}{">"}</label>
+            <label className="SkillAbility">【{abilityJP}】</label>
+          </div>
         </div>
       </div>
     )
@@ -198,24 +201,24 @@ function Ability(props) {
             <label>セーヴィング・スロー</label>
           </div>
           <div className="Skills">
-            {skill("intimidation", "威圧", "魅力")}
-            {skill("medicine", "医術", "判断力")}
-            {skill("athletics", "運動", "筋力")}
-            {skill("stealth", "隠密", "敏捷力")}
-            {skill("acrobatics", "軽業", "敏捷力")}
-            {skill("insight", "看破", "判断力")}
-            {skill("performance", "芸能", "魅力")}
-            {skill("nature", "自然", "知力")}
-            {skill("religion", "宗教", "知力")}
-            {skill("survival", "生存", "判断力")}
-            {skill("persuasion", "説得", "魅力")}
-            {skill("investigation", "捜査", "知力")}
-            {skill("perception", "知覚", "判断力")}
-            {skill("sleight_of_hand", "手先の早業", "敏捷力")}
-            {skill("animal_handling", "動物使い", "判断力")}
-            {skill("deception", "ペテン", "魅力")}
-            {skill("arcana", "魔法学", "知力")}
-            {skill("history", "歴史", "知力")}
+            {skill("intimidation", "Intimidation", "威圧", "魅力")}
+            {skill("medicine", "Medicine", "医術", "判断力")}
+            {skill("athletics", "Athletics", "運動", "筋力")}
+            {skill("stealth", "Stealth", "隠密", "敏捷力")}
+            {skill("acrobatics", "Acrobatics", "軽業", "敏捷力")}
+            {skill("insight", "Insight", "看破", "判断力")}
+            {skill("performance", "Performance", "芸能", "魅力")}
+            {skill("nature", "Nature", "自然", "知力")}
+            {skill("religion", "Religion", "宗教", "知力")}
+            {skill("survival", "Survival", "生存", "判断力")}
+            {skill("persuasion", "Persuasion", "説得", "魅力")}
+            {skill("investigation", "Investigation", "捜査", "知力")}
+            {skill("perception", "Perception", "知覚", "判断力")}
+            {skill("sleight_of_hand", "Sleight of hand", "手先の早業", "敏捷力")}
+            {skill("animal_handling", "Animal handling", "動物使い", "判断力")}
+            {skill("deception", "Deception", "ペテン", "魅力")}
+            {skill("arcana", "Arcana", "魔法学", "知力")}
+            {skill("history", "History", "歴史", "知力")}
             <label>技能</label>
           </div>
         </div>
