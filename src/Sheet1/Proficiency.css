@@ -1,6 +1,6 @@
 .Proficiency {
   width: 65mm;
-  height: 40mm;
+  min-height: 40mm;
   border: solid 2px gray;
   border-radius: 2mm;
   justify-content: flex-end;
