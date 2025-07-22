@@ -396,10 +396,22 @@ function App() {
 
   const chat = () => {
     const data = currentData();
+      let actions = "";
+      console.log("data = ", data)
+      data.actions.forEach((action, index) => {
+        if (action.name.length > 0) {
+          actions = actions + "1d20" + action.attack_bonus + " ▼" + action.name + "・攻撃ロール\n";
+        }
+        if (action.name.length > 0) {
+          actions = actions + action.damage_dice + " ▼" + action.name + "・ダメージロール\n";
+        }
+      });
+      console.log("actions = ", actions);
 
     const text =
       "1d20" + stringForModifier(Number(data.initiative)) + "  ▼イニシアチブ\n" +
       "■攻撃===========================================\n" +
+      actions + 
       "1d20" + stringForModifier(Number(modifier(data.stats.strength)) + Number(data.proficiency_bonus)) + " ▼[筋力]攻撃ロール\n" +
       "1d20" + stringForModifier(Number(modifier(data.stats.dexterity)) + Number(data.proficiency_bonus)) + " ▼[敏捷力]攻撃ロール\n" +
       "1d20" + stringForModifier(Number(data.spell_attack)) + " ▼呪文攻撃ロール\n" +
