@@ -7,7 +7,7 @@
   z-index: 10;
   border: solid 2px gray;
   border-radius: 2mm;
-
+  left: 90px;
 
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
   transform: translateY(10px);
