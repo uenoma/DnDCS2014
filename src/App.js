@@ -465,7 +465,7 @@ function App() {
       "data": {
         "name": data.name,
         "initiative": Number(data.initiative),
-        "externalUrl": "https://uenoma.sakura.ne.jp/dndcs2014/",
+        "externalUrl": "https://dndhideout.com/dndcs2014/" + (characterId ? "?id=" + characterId : ""),
         "iconUrl": "",
         "commands": chat(),
         "status": [
@@ -552,7 +552,7 @@ function App() {
     <div className="App">
       <div className="AppHeader">
         <div className="AppButtonRow">
-          <a href="https://uenoma.sakura.ne.jp/services/characters/">一覧に戻る</a>
+          <a href="https://dndhideout.com/services/characters/">一覧に戻る</a>
         </div>
         <div className="AppButtonRow">
           <label>DATABASE</label><button onClick={(e) => { saveDB(e) }} className="AppSaveButton">DB保存</button>
