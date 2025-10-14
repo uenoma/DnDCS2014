@@ -1,7 +1,18 @@
 import './Spells.css';
 import { useEffect } from 'react';
+import spell_button from '../images/spell_button.png';
+
 
 function Spells(props) {
+
+  const openCard = (e, spellLevel, index) => {
+    const spellName = document.getElementById("spell_name" + spellLevel + "_" + index).value;
+    // 空白・半角括弧・全角括弧で分割し、最初の文字列だけ取得
+    const firstPart = spellName.split(/[\s\(\)（）]+/).filter(Boolean)[0] || "";
+    if (firstPart.length > 0) {
+      window.open('https://dndhideout.com/dndspells/?name=' + encodeURIComponent(firstPart), 'spellcard', 'width=600,height=800,scrollbars=yes,resizable=yes');
+    }
+  }
 
   useEffect(() => {
     if (props.data && props.data.spells) {
@@ -51,7 +62,12 @@ function Spells(props) {
       items.push(
         <div className="SpellsItem" key={"spell_name" + props.spellLevel + "_" + index}>
           {check}
-          <div className="SpellsItemName"><input id={"spell_name" + props.spellLevel + "_" + index}></input></div>
+          <div className="SpellsItemName">
+            <input id={"spell_name" + props.spellLevel + "_" + index}></input>
+            { props.displayCard &&
+              <img className="SpellsItemButton" src={spell_button} alt="button" onClick={(e) => openCard(e, props.spellLevel, index)}></img>
+            }
+          </div>
         </div>
       );
     }

@@ -19,3 +19,29 @@
   height: 250mm;
   align-items: center;
 }
+
+.Sheet3Checkbox {
+  margin-bottom: 10px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.Sheet3Checkbox label {
+  display: flex;
+  align-items: center;
+  height: 1rem;
+}
+
+.Sheet3Checkbox input {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 10px;
+}
+
+@media print{
+  .Sheet3Checkbox {
+    display: none;
+  }
+}

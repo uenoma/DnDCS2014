@@ -91,3 +91,23 @@
   border: none;
   border-bottom: solid 1px gray;
 }
+
+.SpellsItemButton {
+  position: relative;
+  top: -1.2rem;
+  left: 57mm;
+  width: 5mm;
+  height: 5mm;
+  margin-right: 0.5mm;
+  cursor: pointer;
+}
+
+.SpellsItemButton:hover {
+  opacity: 0.5;
+}
+
+@media print{
+  .SpellsItemButton {
+    display: none;
+  }
+}
