@@ -10,7 +10,7 @@ function Spells(props) {
     // 空白・半角括弧・全角括弧で分割し、最初の文字列だけ取得
     const firstPart = spellName.split(/[\s\(\)（）]+/).filter(Boolean)[0] || "";
     if (firstPart.length > 0) {
-      window.open('https://dndhideout.com/dndspells/?name=' + encodeURIComponent(firstPart), 'spellcard', 'width=600,height=800,scrollbars=yes,resizable=yes');
+      window.open('https://dndhideout.com/spellcard/?name=' + encodeURIComponent(firstPart), 'spellcard', 'width=600,height=800,scrollbars=yes,resizable=yes');
     }
   }
 
