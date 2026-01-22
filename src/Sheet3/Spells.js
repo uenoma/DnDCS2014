@@ -7,8 +7,8 @@ function Spells(props) {
 
   const openCard = (e, spellLevel, index) => {
     const spellName = document.getElementById("spell_name" + spellLevel + "_" + index).value;
-    // 空白・半角括弧・全角括弧で分割し、最初の文字列だけ取得
-    const firstPart = spellName.split(/[\s\(\)（）]+/).filter(Boolean)[0] || "";
+    // 空白（スペース以外）・半角括弧・全角括弧で分割し、最初の文字列だけ取得
+    const firstPart = spellName.split(/[\t\n\v\f\r\(\)（）]+/).filter(Boolean)[0] || "";
     if (firstPart.length > 0) {
       window.open('https://dndhideout.com/spellcard/?name=' + encodeURIComponent(firstPart), 'spellcard', 'width=600,height=800,scrollbars=yes,resizable=yes');
     }
