@@ -556,7 +556,7 @@ function App() {
         </div>
         <div className="AppButtonRow">
           <label>DATABASE</label><button onClick={(e) => { saveDB(e) }} className="AppSaveButton">DB保存</button>
-          パスワード：<input type="password" id="savePassword" placeholder='8文字以上'></input>
+          パスワード：<input type="password" id="savePassword" placeholder='8文字以上' autoComplete="current-password"></input>
           {shareButton()}
         </div>
         <div className="AppButtonRow">
