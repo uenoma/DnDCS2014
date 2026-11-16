@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Sheet1 from './Sheet1/Sheet1'
 import Sheet2 from './Sheet2/Sheet2'
 import Sheet3 from './Sheet3/Sheet3'
+import Sheet4 from './Sheet4/Sheet4'
 import axios from 'axios';
 
 function App() {
@@ -292,6 +293,11 @@ function App() {
         spellItems(9, 8),
       ],
 
+      memos: {
+        memo1: document.getElementById('Sheet4Memo1').value,
+        memo2: document.getElementById('Sheet4Memo2').value,
+        memo3: document.getElementById('Sheet4Memo3').value,
+      },
     }
   }
 
@@ -583,6 +589,11 @@ function App() {
       <div className="Sheet Border">
         <div className="Content">
           <Sheet3 data={data}></Sheet3>
+        </div>
+      </div>
+      <div className="Sheet Border">
+        <div className="Content">
+          <Sheet4 data={data}></Sheet4>
         </div>
       </div>
       <div className="AppFooter">

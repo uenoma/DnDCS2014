@@ -1,0 +1,39 @@
+.Sheet4 {
+  width: 100%;
+  height: 100%;
+}
+
+.Sheet4Body {
+  width: 100%;
+  height: calc(100% - 5mm);
+  padding-top: 5mm;
+  margin: 2mm 0 2mm 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.Sheet4RowTextArea {
+  height: 100%;
+  border: 1px solid #000000;
+  border-radius: 2mm;
+  width: 65mm;
+}
+
+.Sheet4RowTextArea textarea {
+  resize: none;
+  width: 60mm;
+  margin: 2mm 2mm 0 2mm;
+  height: calc(100% - 12mm);
+  border: none;
+  font-size: 10px;
+}
+
+.Sheet4RowTitle {
+  text-align: center;
+  margin-top: 2mm;
+}
+
+@media print{
+}
